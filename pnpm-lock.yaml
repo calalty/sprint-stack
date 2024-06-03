@@ -9,7 +9,7 @@ importers:
     dependencies:
       next:
         specifier: 14.2.3
-        version: 14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18
         version: 18.3.1
@@ -55,37 +55,53 @@ importers:
         version: 5.4.5
 
   packages/sb:
+    dependencies:
+      '@heroicons/react':
+        specifier: ^2.1.3
+        version: 2.1.3(react@packages+sb+@types+heroicons+react)
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^1.5.0
-        version: 1.5.0(react@18.3.1)
+        version: 1.5.0(react@packages+sb+@types+heroicons+react)
       '@storybook/addon-essentials':
         specifier: ^8.1.5
-        version: 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
       '@storybook/addon-interactions':
         specifier: ^8.1.5
         version: 8.1.5
       '@storybook/addon-links':
         specifier: ^8.1.5
-        version: 8.1.5(react@18.3.1)
+        version: 8.1.5(react@packages+sb+@types+heroicons+react)
       '@storybook/addon-onboarding':
         specifier: ^8.1.5
-        version: 8.1.5(react@18.3.1)
+        version: 8.1.5(react@packages+sb+@types+heroicons+react)
       '@storybook/blocks':
         specifier: ^8.1.5
-        version: 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       '@storybook/nextjs':
         specifier: ^8.1.5
-        version: 8.1.5(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
+        version: 8.1.5(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react))(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
       '@storybook/react':
         specifier: ^8.1.5
-        version: 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)
+        version: 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)
       '@storybook/test':
         specifier: ^8.1.5
         version: 8.1.5
+      autoprefixer:
+        specifier: ^10.4.19
+        version: 10.4.19(postcss@8.4.38)
+      postcss:
+        specifier: ^8
+        version: 8.4.38
+      react:
+        specifier: link:@types/heroicons/react
+        version: link:@types/heroicons/react
       storybook:
         specifier: ^8.1.5
-        version: 8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
+      tailwindcss:
+        specifier: ^3.4.1
+        version: 3.4.3
 
   packages/tsconfig: {}
 
@@ -1434,6 +1450,14 @@ packages:
       {
         integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==
       }
+
+  '@heroicons/react@2.1.3':
+    resolution:
+      {
+        integrity: sha512-fEcPfo4oN345SoqdlCDdSa4ivjaKbk0jTd+oubcgNxnNgAfzysfwWfQUr+51wigiWHQQRiZNd1Ao0M5Y3M2EGg==
+      }
+    peerDependencies:
+      react: '>= 16'
 
   '@humanwhocodes/config-array@0.11.14':
     resolution:
@@ -3345,6 +3369,16 @@ packages:
         integrity: sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg==
       }
 
+  autoprefixer@10.4.19:
+    resolution:
+      {
+        integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==
+      }
+    engines: { node: ^10 || ^12 || >=14 }
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+
   available-typed-arrays@1.0.7:
     resolution:
       {
@@ -5096,6 +5130,12 @@ packages:
       }
     engines: { node: '>= 0.6' }
 
+  fraction.js@4.3.7:
+    resolution:
+      {
+        integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
+      }
+
   fresh@0.5.2:
     resolution:
       {
@@ -6708,6 +6748,13 @@ packages:
     resolution:
       {
         integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+      }
+    engines: { node: '>=0.10.0' }
+
+  normalize-range@0.1.2:
+    resolution:
+      {
+        integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
       }
     engines: { node: '>=0.10.0' }
 
@@ -9998,12 +10045,12 @@ snapshots:
 
   '@base2/pretty-print-object@1.0.1': {}
 
-  '@chromatic-com/storybook@1.5.0(react@18.3.1)':
+  '@chromatic-com/storybook@1.5.0(react@packages+sb+@types+heroicons+react)':
     dependencies:
       chromatic: 11.4.1
       filesize: 10.1.2
       jsonfile: 6.1.0
-      react-confetti: 6.1.0(react@18.3.1)
+      react-confetti: 6.1.0(react@packages+sb+@types+heroicons+react)
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
@@ -10023,6 +10070,10 @@ snapshots:
   '@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.3.1)':
     dependencies:
       react: 18.3.1
+
+  '@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
 
   '@esbuild/aix-ppc64@0.20.2':
     optional: true
@@ -10117,6 +10168,10 @@ snapshots:
   '@eslint/js@8.57.0': {}
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2': {}
+
+  '@heroicons/react@2.1.3(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
@@ -10326,10 +10381,24 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-compose-refs@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-context@1.0.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  '@radix-ui/react-context@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      react: link:packages/sb/@types/heroicons/react
     optionalDependencies:
       '@types/react': 18.3.3
 
@@ -10356,6 +10425,29 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
+  '@radix-ui/react-dialog@1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/primitive': 1.0.1
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-context': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-dismissable-layer': 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-focus-guards': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-focus-scope': 1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-id': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-portal': 1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-presence': 1.0.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      aria-hidden: 1.2.4
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+      react-remove-scroll: 2.5.5(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
   '@radix-ui/react-dismissable-layer@1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
@@ -10370,10 +10462,31 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
+  '@radix-ui/react-dismissable-layer@1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/primitive': 1.0.1
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-use-escape-keydown': 1.0.3(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
   '@radix-ui/react-focus-guards@1.0.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  '@radix-ui/react-focus-guards@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      react: link:packages/sb/@types/heroicons/react
     optionalDependencies:
       '@types/react': 18.3.3
 
@@ -10389,6 +10502,18 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
+  '@radix-ui/react-focus-scope@1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
   '@radix-ui/react-id@1.0.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
@@ -10397,11 +10522,29 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-id@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-portal@1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
+  '@radix-ui/react-portal@1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.3.3
@@ -10418,11 +10561,32 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
+  '@radix-ui/react-presence@1.0.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
   '@radix-ui/react-primitive@1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       '@radix-ui/react-slot': 1.0.2(@types/react@18.3.3)(react@18.3.1)
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
+  '@radix-ui/react-primitive@1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.3.3
@@ -10436,10 +10600,25 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-slot@1.0.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-use-callback-ref@1.0.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  '@radix-ui/react-use-callback-ref@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      react: link:packages/sb/@types/heroicons/react
     optionalDependencies:
       '@types/react': 18.3.3
 
@@ -10451,6 +10630,14 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-use-controllable-state@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
@@ -10459,10 +10646,25 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-use-layout-effect@1.0.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.6
       react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  '@radix-ui/react-use-layout-effect@1.0.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@babel/runtime': 7.24.6
+      react: link:packages/sb/@types/heroicons/react
     optionalDependencies:
       '@types/react': 18.3.3
 
@@ -10487,9 +10689,9 @@ snapshots:
       memoizerific: 1.11.3
       ts-dedent: 2.2.0
 
-  '@storybook/addon-controls@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@storybook/addon-controls@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
     dependencies:
-      '@storybook/blocks': 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/blocks': 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       dequal: 2.0.3
       lodash: 4.17.21
       ts-dedent: 2.2.0
@@ -10530,11 +10732,11 @@ snapshots:
       - prettier
       - supports-color
 
-  '@storybook/addon-essentials@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@storybook/addon-essentials@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)':
     dependencies:
       '@storybook/addon-actions': 8.1.5
       '@storybook/addon-backgrounds': 8.1.5
-      '@storybook/addon-controls': 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/addon-controls': 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       '@storybook/addon-docs': 8.1.5(@types/react-dom@18.3.0)(prettier@3.2.5)
       '@storybook/addon-highlight': 8.1.5
       '@storybook/addon-measure': 8.1.5
@@ -10542,7 +10744,7 @@ snapshots:
       '@storybook/addon-toolbars': 8.1.5
       '@storybook/addon-viewport': 8.1.5
       '@storybook/core-common': 8.1.5(prettier@3.2.5)
-      '@storybook/manager-api': 8.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/manager-api': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       '@storybook/node-logger': 8.1.5
       '@storybook/preview-api': 8.1.5
       ts-dedent: 2.2.0
@@ -10574,22 +10776,22 @@ snapshots:
       - jest
       - vitest
 
-  '@storybook/addon-links@8.1.5(react@18.3.1)':
+  '@storybook/addon-links@8.1.5(react@packages+sb+@types+heroicons+react)':
     dependencies:
       '@storybook/csf': 0.1.7
       '@storybook/global': 5.0.0
       ts-dedent: 2.2.0
     optionalDependencies:
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
 
   '@storybook/addon-measure@8.1.5':
     dependencies:
       '@storybook/global': 5.0.0
       tiny-invariant: 1.3.3
 
-  '@storybook/addon-onboarding@8.1.5(react@18.3.1)':
+  '@storybook/addon-onboarding@8.1.5(react@packages+sb+@types+heroicons+react)':
     dependencies:
-      react-confetti: 6.1.0(react@18.3.1)
+      react-confetti: 6.1.0(react@packages+sb+@types+heroicons+react)
     transitivePeerDependencies:
       - react
 
@@ -10632,6 +10834,42 @@ snapshots:
       util-deprecate: 1.0.2
     optionalDependencies:
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - encoding
+      - prettier
+      - supports-color
+
+  '@storybook/blocks@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.2.5)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@storybook/channels': 8.1.5
+      '@storybook/client-logger': 8.1.5
+      '@storybook/components': 8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/core-events': 8.1.5
+      '@storybook/csf': 0.1.7
+      '@storybook/docs-tools': 8.1.5(prettier@3.2.5)
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.2.9(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/manager-api': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/preview-api': 8.1.5
+      '@storybook/theming': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/types': 8.1.5
+      '@types/lodash': 4.17.4
+      color-convert: 2.0.1
+      dequal: 2.0.3
+      lodash: 4.17.21
+      markdown-to-jsx: 7.3.2(react@packages+sb+@types+heroicons+react)
+      memoizerific: 1.11.3
+      polished: 4.3.1
+      react-colorful: 5.6.1(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      telejson: 7.2.0
+      tocbot: 4.28.2
+      ts-dedent: 2.2.0
+      util-deprecate: 1.0.2
+    optionalDependencies:
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
@@ -10717,7 +10955,7 @@ snapshots:
       telejson: 7.2.0
       tiny-invariant: 1.3.3
 
-  '@storybook/cli@8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@storybook/cli@8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)':
     dependencies:
       '@babel/core': 7.24.6
       '@babel/types': 7.24.6
@@ -10725,7 +10963,7 @@ snapshots:
       '@storybook/codemod': 8.1.5
       '@storybook/core-common': 8.1.5(prettier@3.2.5)
       '@storybook/core-events': 8.1.5
-      '@storybook/core-server': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/core-server': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
       '@storybook/csf-tools': 8.1.5
       '@storybook/node-logger': 8.1.5
       '@storybook/telemetry': 8.1.5(prettier@3.2.5)
@@ -10806,6 +11044,24 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
+  '@storybook/components@8.1.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      '@storybook/client-logger': 8.1.5
+      '@storybook/csf': 0.1.7
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.2.9(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/theming': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/types': 8.1.5
+      memoizerific: 1.11.3
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+      util-deprecate: 1.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+
   '@storybook/core-common@8.1.5(prettier@3.2.5)':
     dependencies:
       '@storybook/core-events': 8.1.5
@@ -10848,7 +11104,7 @@ snapshots:
       '@storybook/csf': 0.1.7
       ts-dedent: 2.2.0
 
-  '@storybook/core-server@8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@storybook/core-server@8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)':
     dependencies:
       '@aw-web-design/x-default-browser': 1.4.126
       '@babel/core': 7.24.6
@@ -10863,7 +11119,7 @@ snapshots:
       '@storybook/docs-mdx': 3.1.0-next.0
       '@storybook/global': 5.0.0
       '@storybook/manager': 8.1.5
-      '@storybook/manager-api': 8.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/manager-api': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       '@storybook/node-logger': 8.1.5
       '@storybook/preview-api': 8.1.5
       '@storybook/telemetry': 8.1.5(prettier@3.2.5)
@@ -10966,6 +11222,11 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@storybook/icons@1.2.9(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+
   '@storybook/instrumenter@8.1.5':
     dependencies:
       '@storybook/channels': 8.1.5
@@ -10997,9 +11258,30 @@ snapshots:
       - react
       - react-dom
 
+  '@storybook/manager-api@8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@storybook/channels': 8.1.5
+      '@storybook/client-logger': 8.1.5
+      '@storybook/core-events': 8.1.5
+      '@storybook/csf': 0.1.7
+      '@storybook/global': 5.0.0
+      '@storybook/icons': 1.2.9(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/router': 8.1.5
+      '@storybook/theming': 8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
+      '@storybook/types': 8.1.5
+      dequal: 2.0.3
+      lodash: 4.17.21
+      memoizerific: 1.11.3
+      store2: 2.14.3
+      telejson: 7.2.0
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
   '@storybook/manager@8.1.5': {}
 
-  '@storybook/nextjs@8.1.5(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
+  '@storybook/nextjs@8.1.5(esbuild@0.20.2)(next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react))(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(type-fest@2.19.0)(typescript@5.4.5)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
     dependencies:
       '@babel/core': 7.24.6
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.24.6)
@@ -11019,9 +11301,9 @@ snapshots:
       '@storybook/core-common': 8.1.5(prettier@3.2.5)
       '@storybook/core-events': 8.1.5
       '@storybook/node-logger': 8.1.5
-      '@storybook/preset-react-webpack': 8.1.5(esbuild@0.20.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)
+      '@storybook/preset-react-webpack': 8.1.5(esbuild@0.20.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)
       '@storybook/preview-api': 8.1.5
-      '@storybook/react': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)
+      '@storybook/react': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)
       '@storybook/test': 8.1.5
       '@storybook/types': 8.1.5
       '@types/node': 18.19.33
@@ -11032,19 +11314,19 @@ snapshots:
       fs-extra: 11.2.0
       image-size: 1.1.1
       loader-utils: 3.2.2
-      next: 14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.91.0(esbuild@0.20.2))
       pnp-webpack-plugin: 1.7.0(typescript@5.4.5)
       postcss: 8.4.38
       postcss-loader: 8.1.1(postcss@8.4.38)(typescript@5.4.5)(webpack@5.91.0(esbuild@0.20.2))
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
       react-refresh: 0.14.2
       resolve-url-loader: 5.0.0
       sass-loader: 12.6.0(webpack@5.91.0(esbuild@0.20.2))
       semver: 7.6.2
       style-loader: 3.3.4(webpack@5.91.0(esbuild@0.20.2))
-      styled-jsx: 5.1.1(@babel/core@7.24.6)(react@18.3.1)
+      styled-jsx: 5.1.1(@babel/core@7.24.6)(react@packages+sb+@types+heroicons+react)
       ts-dedent: 2.2.0
       tsconfig-paths: 4.2.0
       tsconfig-paths-webpack-plugin: 4.1.0
@@ -11080,19 +11362,19 @@ snapshots:
 
   '@storybook/node-logger@8.1.5': {}
 
-  '@storybook/preset-react-webpack@8.1.5(esbuild@0.20.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)':
+  '@storybook/preset-react-webpack@8.1.5(esbuild@0.20.2)(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)':
     dependencies:
       '@storybook/core-webpack': 8.1.5(prettier@3.2.5)
       '@storybook/docs-tools': 8.1.5(prettier@3.2.5)
       '@storybook/node-logger': 8.1.5
-      '@storybook/react': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)
+      '@storybook/react': 8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)
       '@storybook/react-docgen-typescript-plugin': 1.0.6--canary.9.0c3f3b7.0(typescript@5.4.5)(webpack@5.91.0(esbuild@0.20.2))
       '@types/node': 18.19.33
       '@types/semver': 7.5.8
       find-up: 5.0.0
       fs-extra: 11.2.0
       magic-string: 0.30.10
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
       react-docgen: 7.0.3
       react-dom: 18.3.1(react@18.3.1)
       resolve: 1.22.8
@@ -11148,13 +11430,18 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/react@8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.4.5)':
+  '@storybook/react-dom-shim@8.1.5(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@storybook/react@8.1.5(prettier@3.2.5)(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)(typescript@5.4.5)':
     dependencies:
       '@storybook/client-logger': 8.1.5
       '@storybook/docs-tools': 8.1.5(prettier@3.2.5)
       '@storybook/global': 5.0.0
       '@storybook/preview-api': 8.1.5
-      '@storybook/react-dom-shim': 8.1.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/react-dom-shim': 8.1.5(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
       '@storybook/types': 8.1.5
       '@types/escodegen': 0.0.6
       '@types/estree': 0.0.51
@@ -11166,9 +11453,9 @@ snapshots:
       html-tags: 3.3.1
       lodash: 4.17.21
       prop-types: 15.8.1
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
-      react-element-to-jsx-string: 15.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-element-to-jsx-string: 15.0.0(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
       semver: 7.6.2
       ts-dedent: 2.2.0
       type-fest: 2.19.0
@@ -11228,6 +11515,16 @@ snapshots:
       memoizerific: 1.11.3
     optionalDependencies:
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@storybook/theming@8.1.5(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react)':
+    dependencies:
+      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@packages+sb+@types+heroicons+react)
+      '@storybook/client-logger': 8.1.5
+      '@storybook/global': 5.0.0
+      memoizerific: 1.11.3
+    optionalDependencies:
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
 
   '@storybook/types@8.1.5':
@@ -11783,6 +12080,16 @@ snapshots:
       tslib: 2.6.2
 
   async@3.2.5: {}
+
+  autoprefixer@10.4.19(postcss@8.4.38):
+    dependencies:
+      browserslist: 4.23.0
+      caniuse-lite: 1.0.30001625
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.0.1
+      postcss: 8.4.38
+      postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
     dependencies:
@@ -12680,7 +12987,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
       eslint-plugin-react: 7.34.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -12704,7 +13011,7 @@ snapshots:
       enhanced-resolve: 5.16.1
       eslint: 8.57.0
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.5
       is-core-module: 2.13.1
@@ -12726,7 +13033,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.4.5))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
@@ -13081,6 +13388,8 @@ snapshots:
       webpack: 5.91.0(esbuild@0.20.2)
 
   forwarded@0.2.0: {}
+
+  fraction.js@4.3.7: {}
 
   fresh@0.5.2: {}
 
@@ -13812,6 +14121,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  markdown-to-jsx@7.3.2(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+
   md5.js@1.3.5:
     dependencies:
       hash-base: 3.1.0
@@ -13919,7 +14232,32 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.3(@babel/core@7.24.6)(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      '@next/env': 14.2.3
+      '@swc/helpers': 0.5.5
+      busboy: 1.6.0
+      caniuse-lite: 1.0.30001625
+      graceful-fs: 4.2.11
+      postcss: 8.4.31
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+      styled-jsx: 5.1.1(@babel/core@7.24.6)(react@packages+sb+@types+heroicons+react)
+    optionalDependencies:
+      '@next/swc-darwin-arm64': 14.2.3
+      '@next/swc-darwin-x64': 14.2.3
+      '@next/swc-linux-arm64-gnu': 14.2.3
+      '@next/swc-linux-arm64-musl': 14.2.3
+      '@next/swc-linux-x64-gnu': 14.2.3
+      '@next/swc-linux-x64-musl': 14.2.3
+      '@next/swc-win32-arm64-msvc': 14.2.3
+      '@next/swc-win32-ia32-msvc': 14.2.3
+      '@next/swc-win32-x64-msvc': 14.2.3
+    transitivePeerDependencies:
+      - '@babel/core'
+      - babel-plugin-macros
+
+  next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 14.2.3
       '@swc/helpers': 0.5.5
@@ -13929,7 +14267,7 @@ snapshots:
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(@babel/core@7.24.6)(react@18.3.1)
+      styled-jsx: 5.1.1(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
       '@next/swc-darwin-x64': 14.2.3
@@ -14000,6 +14338,8 @@ snapshots:
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
+
+  normalize-range@0.1.2: {}
 
   npm-run-path@4.0.1:
     dependencies:
@@ -14462,9 +14802,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-confetti@6.1.0(react@18.3.1):
+  react-colorful@5.6.1(react-dom@18.3.1(react@packages+sb+@types+heroicons+react))(react@packages+sb+@types+heroicons+react):
     dependencies:
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
+      react-dom: 18.3.1(react@18.3.1)
+
+  react-confetti@6.1.0(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
       tween-functions: 1.2.0
 
   react-docgen-typescript@2.2.2(typescript@5.4.5):
@@ -14492,11 +14837,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-element-to-jsx-string@15.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-element-to-jsx-string@15.0.0(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react):
     dependencies:
       '@base2/pretty-print-object': 1.0.1
       is-plain-object: 5.0.0
-      react: 18.3.1
+      react: link:packages/sb/@types/heroicons/react
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
@@ -14518,6 +14863,14 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  react-remove-scroll-bar@2.3.6(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+      react-style-singleton: 2.2.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   react-remove-scroll@2.5.5(@types/react@18.3.3)(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -14529,11 +14882,31 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  react-remove-scroll@2.5.5(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+      react-remove-scroll-bar: 2.3.6(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      react-style-singleton: 2.2.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      tslib: 2.6.2
+      use-callback-ref: 1.3.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+      use-sidecar: 1.1.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react)
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   react-style-singleton@2.2.1(@types/react@18.3.3)(react@18.3.1):
     dependencies:
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 18.3.1
+      tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  react-style-singleton@2.2.1(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      get-nonce: 1.0.1
+      invariant: 2.2.4
+      react: link:packages/sb/@types/heroicons/react
       tslib: 2.6.2
     optionalDependencies:
       '@types/react': 18.3.3
@@ -14940,9 +15313,9 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook@8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  storybook@8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react):
     dependencies:
-      '@storybook/cli': 8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/cli': 8.1.5(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react-dom@18.3.1(react@18.3.1))(react@packages+sb+@types+heroicons+react)
     transitivePeerDependencies:
       - '@babel/preset-env'
       - bufferutil
@@ -15058,12 +15431,17 @@ snapshots:
     dependencies:
       webpack: 5.91.0(esbuild@0.20.2)
 
-  styled-jsx@5.1.1(@babel/core@7.24.6)(react@18.3.1):
+  styled-jsx@5.1.1(@babel/core@7.24.6)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      client-only: 0.0.1
+      react: link:packages/sb/@types/heroicons/react
+    optionalDependencies:
+      '@babel/core': 7.24.6
+
+  styled-jsx@5.1.1(react@18.3.1):
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-    optionalDependencies:
-      '@babel/core': 7.24.6
 
   sucrase@3.35.0:
     dependencies:
@@ -15387,10 +15765,25 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  use-callback-ref@1.3.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      react: link:packages/sb/@types/heroicons/react
+      tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   use-sidecar@1.1.2(@types/react@18.3.3)(react@18.3.1):
     dependencies:
       detect-node-es: 1.1.0
       react: 18.3.1
+      tslib: 2.6.2
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  use-sidecar@1.1.2(@types/react@18.3.3)(react@packages+sb+@types+heroicons+react):
+    dependencies:
+      detect-node-es: 1.1.0
+      react: link:packages/sb/@types/heroicons/react
       tslib: 2.6.2
     optionalDependencies:
       '@types/react': 18.3.3
