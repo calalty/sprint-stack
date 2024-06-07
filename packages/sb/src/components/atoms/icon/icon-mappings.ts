@@ -580,8 +580,10 @@ import {
   XCircleIcon as XCircleIconSolid,
   XMarkIcon as XMarkIconSolid
 } from '@heroicons/react/24/solid';
+import { SprintStackLogo } from './icons';
 
 export const iconMapping = {
+  SprintStackLogo,
   AcademicCapIconSolid,
   AdjustmentsHorizontalIconSolid,
   AdjustmentsVerticalIconSolid,

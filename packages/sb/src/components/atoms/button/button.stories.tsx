@@ -18,13 +18,27 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Dynamic: Story = {
+const defaultArgs: ButtonProps = {
+  backgroundColor: '#1E88E5',
+  color: 'white',
+  label: 'Save change',
+  primary: false,
+  rounded: true,
+  iconName: 'SprintStackLogo',
+  size: 'text-sm'
+};
+
+export const Primary: Story = {
   args: {
-    backgroundColor: 'red',
-    color: 'white',
-    label: 'Save change',
+    ...defaultArgs,
     primary: true,
-    rounded: true,
-    size: 'text-xs'
+    size: 'text-sm'
+  }
+};
+
+export const Secondary: Story = {
+  args: {
+    ...defaultArgs,
+    size: 'text-sm'
   }
 };

@@ -1,11 +1,12 @@
 import { iconMapping } from './icon-mappings';
 
-type IconName = keyof typeof iconMapping;
+export type IconName = keyof typeof iconMapping;
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type IconTypes = {
   name: IconName;
   size: IconSize;
+  color: string;
 };
 
 const getIconSize = (size: IconSize) => {
@@ -25,7 +26,7 @@ const getIconSize = (size: IconSize) => {
   }
 };
 
-export const Icon = ({ name, size }: IconTypes) => {
+export const Icon = ({ name, size, color }: IconTypes) => {
   const IconComponent = iconMapping[name];
-  return IconComponent ? <IconComponent width={getIconSize(size)} /> : null;
+  return IconComponent ? <IconComponent color={color} width={getIconSize(size)} /> : null;
 };
