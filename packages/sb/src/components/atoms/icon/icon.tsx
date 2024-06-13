@@ -3,10 +3,12 @@ import { iconMapping } from './icon-mappings';
 export type IconName = keyof typeof iconMapping;
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type IconTypes = {
+
+export type IconTypes = {
   name: IconName;
   size: IconSize;
   color: string;
+  additionalClassName?: string;
 };
 
 const getIconSize = (size: IconSize) => {
@@ -26,7 +28,9 @@ const getIconSize = (size: IconSize) => {
   }
 };
 
-export const Icon = ({ name, size, color }: IconTypes) => {
+export const Icon = ({ name, size, color, additionalClassName }: IconTypes) => {
   const IconComponent = iconMapping[name];
-  return IconComponent ? <IconComponent color={color} width={getIconSize(size)} /> : null;
+  return IconComponent ? (
+    <IconComponent className={additionalClassName} color={color} width={getIconSize(size)} />
+  ) : null;
 };

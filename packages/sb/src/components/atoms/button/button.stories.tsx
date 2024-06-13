@@ -5,10 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<ButtonProps> = {
   title: 'Atoms/Button',
   component: Button,
-  args: {
-    label: 'Save changes',
-    backgroundColor: '#0000ff'
-  },
+  args: {},
   parameters: {
     badges: ['stable']
   }
