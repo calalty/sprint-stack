@@ -6,9 +6,22 @@ export type AccordionProps = {
   title: string;
   hexColor: string;
   type: 'plus' | 'chevron';
+  iconBackground?: boolean;
+  border?: 'none' | 'top-bottom' | 'all';
+  rounded?: boolean;
+  backgroundColor?: string;
 };
 
-export const Accordion = ({ children, title, hexColor, type }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  title,
+  hexColor,
+  type,
+  backgroundColor,
+  iconBackground,
+  border = 'none',
+  rounded = false
+}: AccordionProps) => {
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,7 +32,10 @@ export const Accordion = ({ children, title, hexColor, type }: AccordionProps) =
   const isPlus = type === 'plus';
 
   return (
-    <div className='border-y-2' style={{ color: hexColor, borderColor: `${hexColor}25` }}>
+    <div
+      className={`${border === 'top-bottom' && 'border-y-2'} ${border === 'all' && 'border-2'} ${border === 'none' && 'border-none'} ${rounded && 'rounded-lg'} px-2`}
+      style={{ color: hexColor, borderColor: `${hexColor}50`, backgroundColor }}
+    >
       <h2>
         <button
           className='flex items-center justify-between w-full text-left font-semibold py-4'
@@ -32,34 +48,17 @@ export const Accordion = ({ children, title, hexColor, type }: AccordionProps) =
           <span>{title}</span>
 
           <div
-            style={{ backgroundColor: `${hexColor}10` }}
+            style={{ backgroundColor: iconBackground ? `${hexColor}10` : '' }}
             className={`w-[3.5rem] h-[2rem] flex rounded-full justify-center items-center`}
           >
             {isPlus && (
-              <svg
-                fill={hexColor}
-                className='shrink-0 mx-4'
-                width='16'
-                height='16'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <rect
-                  y='7'
-                  width='16'
-                  height='1.5'
-                  rx='1'
-                  className={`transform origin-center transition duration-200 ease-out ${accordionOpen && '!rotate-180'}`}
-                />
-                <rect
-                  y='7'
-                  width='16'
-                  height='1.5'
-                  rx='1'
-                  className={`transform origin-center rotate-90 transition duration-200 ease-out ${accordionOpen && '!rotate-180'}`}
-                />
-              </svg>
+              <Icon
+                name='AnimatedPlusSubtractIcon'
+                size='sm'
+                isOpen={accordionOpen}
+                color={hexColor}
+              />
             )}
-
             {isChevron && (
               <Icon
                 additionalClassName={`shrink-0 mx-4 transform origin-center transition duration-200 ease-out ${accordionOpen && '!rotate-180'} `}

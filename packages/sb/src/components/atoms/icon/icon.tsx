@@ -8,6 +8,7 @@ export type IconTypes = {
   name: IconName;
   size: IconSize;
   color: string;
+  isOpen?: boolean;
   additionalClassName?: string;
 };
 
@@ -28,9 +29,14 @@ const getIconSize = (size: IconSize) => {
   }
 };
 
-export const Icon = ({ name, size, color, additionalClassName }: IconTypes) => {
+export const Icon = ({ name, size, color, additionalClassName, isOpen }: IconTypes) => {
   const IconComponent = iconMapping[name];
   return IconComponent ? (
-    <IconComponent className={additionalClassName} color={color} width={getIconSize(size)} />
+    <IconComponent
+      isOpen={isOpen ?? false}
+      className={additionalClassName}
+      color={color}
+      width={getIconSize(size)}
+    />
   ) : null;
 };

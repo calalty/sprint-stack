@@ -3,7 +3,7 @@ import { Accordion, AccordionProps } from './accordion';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<AccordionProps> = {
-  title: 'Atoms/Accordion',
+  title: 'Molecules/Accordion',
   component: Accordion,
   args: {},
   parameters: {
@@ -30,4 +30,28 @@ const defaultArgs: AccordionProps = {
 
 export const Default: Story = {
   args: defaultArgs
+};
+
+export const Chevron: Story = {
+  args: { ...defaultArgs, type: 'chevron' }
+};
+
+export const BorderTopBottom: Story = {
+  args: { ...defaultArgs, border: 'top-bottom' }
+};
+
+export const BorderAll: Story = {
+  args: { ...defaultArgs, border: 'all' }
+};
+
+export const Background: Story = {
+  args: { ...defaultArgs, backgroundColor: '#f0f4f8' }
+};
+
+export const IconBackground: Story = {
+  args: { ...defaultArgs, backgroundColor: '#f0f4f8', iconBackground: true }
+};
+
+export const Rounded: Story = {
+  args: { ...defaultArgs, backgroundColor: '#f0f4f8', rounded: true }
 };
