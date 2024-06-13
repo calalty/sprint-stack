@@ -15,10 +15,9 @@ export type MenuItemProps = {
 
 export const MenuItem = ({ color, itemsBackgroundColor, items }: MenuItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const buttonRef = useRef(null);
-  const menuRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleMouseLeave = (e: MouseEvent) => {
+  const handleMouseLeave = (e: any) => {
     if (buttonRef.current && !buttonRef.current.contains(e.relatedTarget)) setIsOpen(false);
   };
 
@@ -43,7 +42,6 @@ export const MenuItem = ({ color, itemsBackgroundColor, items }: MenuItemProps) 
       </button>
 
       <ul
-        ref={menuRef}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
         className={`origin-top absolute left-1/2 transform -translate-x-1/2 w-56 rounded-md transition-all duration-200 ease-out ${
