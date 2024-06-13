@@ -23,9 +23,7 @@ const defaultArgs: InputProps = {
 };
 
 export const Standard: Story = {
-  args: {
-    ...defaultArgs
-  }
+  args: defaultArgs
 };
 
 export const Filled: Story = {

@@ -31,7 +31,7 @@ export const Button = ({
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex font-semibold items-center gap-2 py-2 px-4 ${size} ${primary ? 'border-none' : 'border'} ${rounded ? 'rounded-full' : 'rounded-lg'} transition-all ease-in-out hover:ease-in duration-150 transform hover:-translate-y-[2px] ${primary && 'hover:shadow-button'}`}
+      className={`flex font-semibold items-center gap-2 py-2 px-4 ${size} ${primary ? 'border-none' : 'border'} ${rounded ? 'rounded-full' : 'rounded-lg'} transition-all ease-in-out hover:ease-in duration-150 transform hover:-translate-y-[2px]`}
     >
       <Icon
         color={primary ? color : backgroundColor}
