@@ -1,68 +1,153 @@
-import { useState, useRef } from 'react';
-import { Icon } from '../../atoms/icon/icon';
+/* eslint-disable react/display-name */
+import { useState, useRef, useEffect, forwardRef, HTMLAttributes } from 'react';
 import { TextLink } from '../../atoms/text-link/text-link';
+import { Icon } from '../../atoms/icon/icon';
 
-export type MenuItems = {
+export type Links = {
   label: string;
   url: string;
+  children: any;
 };
 
 export type MenuItemProps = {
   color: string;
-  itemsBackgroundColor: string;
-  items: MenuItems[];
+  links: Links[];
+  showIcon?: boolean;
 };
+interface MenuProps extends HTMLAttributes<HTMLDivElement> {
+  children: any;
+  index: number | null;
+  hovering: number | null;
+  setHovering: (value: number | null) => void;
+}
 
-export const MenuItem = ({ color, itemsBackgroundColor, items }: MenuItemProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+const Menu = forwardRef<HTMLDivElement, MenuProps>(
+  ({ children, index, hovering, setHovering }, ref) => {
+    return (
+      <section
+        onMouseEnter={() => setHovering(index)}
+        className={`absolute transition-opacity duration-300
+        ${hovering === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        ref={ref}
+      >
+        {children}
+      </section>
+    );
+  }
+);
 
-  const handleMouseLeave = (e: any) => {
-    if (buttonRef.current && !buttonRef.current.contains(e.relatedTarget)) setIsOpen(false);
+export const MenuItem = ({ color, showIcon, links }: MenuItemProps) => {
+  const [hovering, setHovering] = useState<number | null>(null);
+  const [popoverLeft, setPopoverLeft] = useState<number>();
+  const [textLinkWidth, setTextLinkWidth] = useState<number>(0);
+  const [popoverHeight, setPopoverHeight] = useState<number>(0);
+  const [popoverWidth, setPopoverWidth] = useState<number>(0);
+  const [hoverCount, setHoverCount] = useState<number>(0);
+
+  const refs = useRef<(HTMLElement | null)[]>([]);
+  const navRef = useRef<HTMLElement | null>(null);
+  const popoverRef = useRef<HTMLDivElement | null>(null);
+  const textLinkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  const handleOnEnter = (index: number, el: HTMLElement) => {
+    setPopoverLeft(el.offsetLeft);
+
+    const menuElement = refs.current[index];
+    const textLink = textLinkRefs.current[index];
+
+    if (menuElement) {
+      setPopoverWidth(menuElement.offsetWidth);
+      setPopoverHeight(menuElement.offsetHeight);
+    }
+    if (textLink) {
+      setTextLinkWidth(textLink.offsetWidth);
+    }
+
+    setHovering(index);
+    setHoverCount(prevCount => prevCount + 1);
   };
 
-  return (
-    <div className='relative inline-block text-left'>
-      <button
-        ref={buttonRef}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={handleMouseLeave}
-        type='button'
-        className='inline-flex justify-center items-center w-full rounded-md border text-sm gap-2 py-6 px-4'
-        aria-expanded={isOpen}
-        aria-haspopup='true'
-      >
-        Options
-        <Icon
-          additionalClassName={`shrink-0 transform origin-center transition duration-200 ease-out ${isOpen && '!rotate-180'}`}
-          color={color}
-          size='sm'
-          name='ChevronDownIconSolid'
-        />
-      </button>
+  const handleMouseLeave = () => {
+    setHovering(null);
+    setHoverCount(0);
+    setPopoverHeight(0);
+  };
 
-      <ul
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
-        className={`origin-top absolute left-1/2 transform -translate-x-1/2 w-56 rounded-md transition-all duration-200 ease-out ${
-          isOpen ? 'opacity-100 translate-y-1' : 'opacity-0 -translate-y-1 pointer-events-none'
-        }`}
-        role='menu'
-        aria-orientation='vertical'
-        aria-labelledby='menu-button'
-        tabIndex={-1}
-      >
-        {items.map(({ label, url }) => (
-          <li key={label}>
-            <TextLink
-              label={label}
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      if (
+        navRef.current &&
+        popoverRef.current &&
+        !navRef.current.contains(event.target as Node) &&
+        !popoverRef.current.contains(event.target as Node)
+      ) {
+        handleMouseLeave();
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  console.log({ textLinkWidth });
+  return (
+    <nav
+      ref={navRef}
+      className='items-start self-center flex w-fit max-w-full justify-between gap-10 my-auto max-md:flex-wrap max-md:justify-center ml-64'
+    >
+      {links.map(({ label }, index) => (
+        <div className='flex gap-2' key={label}>
+          <TextLink
+            onFocus={event => handleOnEnter(index, event.currentTarget)}
+            onMouseEnter={event => handleOnEnter(index, event.currentTarget)}
+            url=''
+            color={color}
+            label={label}
+            ref={el => (textLinkRefs.current[index] = el)}
+          />
+
+          {showIcon && (
+            <Icon
+              additionalClassName={`shrink-0 transform origin-center transition duration-200 ease-out ${hovering === index && '!rotate-180'} `}
               color={color}
-              backgroundColorChange={itemsBackgroundColor}
-              url={url}
+              size='xl'
+              name='ChevronDownIconSolid'
             />
-          </li>
-        ))}
-      </ul>
-    </div>
+          )}
+        </div>
+      ))}
+
+      <div
+        ref={popoverRef}
+        style={{
+          borderColor: color,
+          left: popoverLeft,
+          width: popoverWidth,
+          height: popoverHeight
+        }}
+        className={`absolute ${hoverCount === 1 ? 'transition-opacity' : 'transition-all'} duration-300 ease-in-out shadow border-2 rounded mt-8 ${hovering !== null ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <div
+          style={{ backgroundColor: color, left: (textLinkWidth - 17) / 2 }}
+          className={`-z-50 duration-300 absolute w-3 h-3 transform rotate-45 rounded-tl-[3px] shadow-[3px_3px_5px_rgba(82,95,127,0.04)] transition-all ${hovering !== null ? '-translate-y-2 opacity-100' : 'translate-y-0 opacity-0'}`}
+        ></div>
+
+        <div className='relative bg-white h-3'>
+          {links.map(({ children }, index) => (
+            <Menu
+              key={index}
+              hovering={hovering}
+              index={index}
+              setHovering={setHovering}
+              ref={element => (refs.current[index] = element)}
+            >
+              {children}
+            </Menu>
+          ))}
+        </div>
+      </div>
+    </nav>
   );
 };

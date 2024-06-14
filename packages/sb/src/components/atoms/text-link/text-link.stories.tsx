@@ -41,13 +41,6 @@ export const LeftToRight: Story = {
   args: { ...defaultArgs, type: 'left-to-right' }
 };
 
-export const Icon: Story = {
-  args: {
-    ...defaultArgs,
-    iconName: 'ArrowRightIconSolid'
-  }
-};
-
 export const HighlightX: Story = {
   args: { ...defaultArgs, type: 'highlight-x' }
 };
