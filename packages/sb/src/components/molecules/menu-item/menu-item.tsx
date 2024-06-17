@@ -127,11 +127,11 @@ export const MenuItem = ({ color, showIcon, links }: MenuItemProps) => {
           width: popoverWidth,
           height: popoverHeight
         }}
-        className={`absolute ${hoverCount === 1 ? 'transition-opacity' : 'transition-all'} duration-300 ease-in-out shadow border-2 rounded mt-8 ${hovering !== null ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`absolute ${hoverCount === 1 ? 'transition-opacity' : 'transition-all'} duration-300 ease-in-out shadow border-2 -ml-16 overflow-hidden rounded mt-8 ${hovering !== null ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <div
-          style={{ backgroundColor: color, left: (textLinkWidth - 17) / 2 }}
-          className={`-z-50 duration-300 absolute w-3 h-3 transform rotate-45 rounded-tl-[3px] shadow-[3px_3px_5px_rgba(82,95,127,0.04)] transition-all ${hovering !== null ? '-translate-y-2 opacity-100' : 'translate-y-0 opacity-0'}`}
+          style={{ backgroundColor: color, left: (textLinkWidth - 17) / 2 + 64 }}
+          className={`-z-50 duration-300 overflow-visible absolute w-3 h-3 transform rotate-45 rounded-tl -[3px] shadow-[3px_3px_5px_rgba(82,95,127,0.04)] transition-all ${hovering !== null ? '-translate-y-2 opacity-100' : 'translate-y-0 opacity-0'}`}
         ></div>
 
         <div className='relative bg-white h-3'>
