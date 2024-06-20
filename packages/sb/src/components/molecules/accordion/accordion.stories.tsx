@@ -24,7 +24,7 @@ const defaultArgs: AccordionProps = {
     </p>
   ),
   title: 'What is Sprint Stack?',
-  hexColor: '#2d3a45',
+  color: '#00000',
   type: 'plus'
 };
 
@@ -45,13 +45,13 @@ export const BorderAll: Story = {
 };
 
 export const Background: Story = {
-  args: { ...defaultArgs, backgroundColor: '#f0f4f8' }
+  args: { ...defaultArgs, backgroundColor: '#F2F2F2' }
 };
 
 export const IconBackground: Story = {
-  args: { ...defaultArgs, backgroundColor: '#f0f4f8', iconBackground: true }
+  args: { ...defaultArgs, backgroundColor: '#F2F2F2', iconBackground: '#E0E0E0' }
 };
 
 export const Rounded: Story = {
-  args: { ...defaultArgs, backgroundColor: '#f0f4f8', rounded: true }
+  args: { ...defaultArgs, backgroundColor: '#F2F2F2', isRounded: true }
 };

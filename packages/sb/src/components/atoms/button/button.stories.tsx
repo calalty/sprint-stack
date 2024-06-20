@@ -16,12 +16,12 @@ export default meta;
 type Story = StoryObj<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
-  backgroundColor: '#1E88E5',
-  color: 'white',
+  backgroundColor: '#000000',
+  color: '#FFFFFF',
   label: 'Save change',
   primary: false,
   rounded: true,
-  iconName: 'SprintStackLogo',
+  iconName: 'ArrowDownIconOutline',
   size: 'text-sm'
 };
 

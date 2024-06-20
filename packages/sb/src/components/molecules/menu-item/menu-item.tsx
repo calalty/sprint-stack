@@ -11,20 +11,23 @@ export type Links = {
 
 export type MenuItemProps = {
   color: string;
+  backgroundColor: string;
   links: Links[];
   showIcon?: boolean;
 };
 interface MenuProps extends HTMLAttributes<HTMLDivElement> {
   children: any;
+  backgroundColor: string;
   index: number | null;
   hovering: number | null;
   setHovering: (value: number | null) => void;
 }
 
 const Menu = forwardRef<HTMLDivElement, MenuProps>(
-  ({ children, index, hovering, setHovering }, ref) => {
+  ({ children, index, hovering, setHovering, backgroundColor }, ref) => {
     return (
       <section
+        style={{ backgroundColor }}
         onMouseEnter={() => setHovering(index)}
         className={`absolute transition-opacity duration-300
         ${hovering === index ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -36,7 +39,7 @@ const Menu = forwardRef<HTMLDivElement, MenuProps>(
   }
 );
 
-export const MenuItem = ({ color, showIcon, links }: MenuItemProps) => {
+export const MenuItem = ({ color, showIcon, links, backgroundColor }: MenuItemProps) => {
   const [hovering, setHovering] = useState<number | null>(null);
   const [popoverLeft, setPopoverLeft] = useState<number>();
   const [textLinkWidth, setTextLinkWidth] = useState<number>(0);
@@ -91,11 +94,10 @@ export const MenuItem = ({ color, showIcon, links }: MenuItemProps) => {
     };
   }, []);
 
-  console.log({ textLinkWidth });
   return (
     <nav
       ref={navRef}
-      className='items-start self-center flex w-fit max-w-full justify-between gap-10 my-auto max-md:flex-wrap max-md:justify-center ml-64'
+      className='items-start self-center flex w-fit max-w-full justify-between gap-10 my-auto max-md:flex-wrap max-md:justify-center'
     >
       {links.map(({ label }, index) => (
         <div className='flex gap-2' key={label}>
@@ -137,6 +139,7 @@ export const MenuItem = ({ color, showIcon, links }: MenuItemProps) => {
         <div className='relative bg-white h-3'>
           {links.map(({ children }, index) => (
             <Menu
+              backgroundColor={backgroundColor}
               key={index}
               hovering={hovering}
               index={index}

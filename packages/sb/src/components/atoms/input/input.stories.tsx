@@ -18,8 +18,8 @@ type Story = StoryObj;
 const defaultArgs: InputProps = {
   label: 'Save changes',
   type: 'standard',
-  backgroundColor: '#f0f4f8',
-  color: '#2d3a45'
+  backgroundColor: '#F2F2F2',
+  color: '#000000'
 };
 
 export const Standard: Story = {

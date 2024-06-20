@@ -18,7 +18,7 @@ type Story = StoryObj;
 const defaultArgs: TextLinkProps = {
   label: 'Save changes',
   url: '',
-  color: '#1E88E5'
+  color: '#000000'
 };
 
 export const Default: Story = {
@@ -26,11 +26,16 @@ export const Default: Story = {
 };
 
 export const BackgroundColorChange: Story = {
-  args: { ...defaultArgs, color: '#2d3a45', backgroundColorChange: '#1E88E5', colorChange: 'white' }
+  args: {
+    ...defaultArgs,
+    color: '#000000',
+    backgroundColorChange: '#000000',
+    colorChange: '#FFFFFF'
+  }
 };
 
 export const ColorChange: Story = {
-  args: { ...defaultArgs, colorChange: '#2d3a45' }
+  args: { ...defaultArgs, colorChange: '#DDDDD' }
 };
 
 export const Centre: Story = {

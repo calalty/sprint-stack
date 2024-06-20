@@ -4,23 +4,25 @@ import { Icon } from '../../atoms/icon/icon';
 export type AccordionProps = {
   children: any;
   title: string;
-  hexColor: string;
+  color: string;
   type: 'plus' | 'chevron';
-  iconBackground?: boolean;
+  iconBackground?: string;
   border?: 'none' | 'top-bottom' | 'all';
-  rounded?: boolean;
+  borderColor?: string;
+  isRounded?: boolean;
   backgroundColor?: string;
 };
 
 export const Accordion = ({
   children,
   title,
-  hexColor,
+  color,
   type,
   backgroundColor,
   iconBackground,
+  borderColor,
   border = 'none',
-  rounded = false
+  isRounded = false
 }: AccordionProps) => {
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
@@ -33,8 +35,8 @@ export const Accordion = ({
 
   return (
     <div
-      className={`${border === 'top-bottom' && 'border-y-2'} ${border === 'all' && 'border-2'} ${border === 'none' && 'border-none'} ${rounded && 'rounded-lg'} px-2`}
-      style={{ color: hexColor, borderColor: `${hexColor}50`, backgroundColor }}
+      className={`${border === 'top-bottom' && 'border-y-2'} ${border === 'all' && 'border-2'} ${border === 'none' && 'border-none'} ${isRounded && 'isRounded-lg'} px-2`}
+      style={{ color, borderColor, backgroundColor }}
     >
       <h2>
         <button
@@ -48,21 +50,21 @@ export const Accordion = ({
           <span>{title}</span>
 
           <div
-            style={{ backgroundColor: iconBackground ? `${hexColor}10` : '' }}
-            className={`w-[3.5rem] h-[2rem] flex rounded-full justify-center items-center`}
+            style={{ backgroundColor: iconBackground }}
+            className={`w-[3.5rem] h-[2rem] flex isRounded-full justify-center items-center`}
           >
             {isPlus && (
               <Icon
                 name='AnimatedPlusSubtractIcon'
                 size='sm'
                 isOpen={accordionOpen}
-                color={hexColor}
+                color={color}
               />
             )}
             {isChevron && (
               <Icon
                 additionalClassName={`shrink-0 mx-4 transform origin-center transition duration-200 ease-out ${accordionOpen && '!rotate-180'} `}
-                color={hexColor}
+                color={color}
                 size='xl'
                 name='ChevronDownIconSolid'
               />

@@ -16,8 +16,8 @@ export default meta;
 type Story = StoryObj<IconTypes>;
 
 const defaultArgs: IconTypes = {
-  color: '#1E88E5',
-  name: 'SprintStackLogo',
+  color: '#00000',
+  name: 'ArrowDownIconOutline',
   size: 'xl'
 };
 
